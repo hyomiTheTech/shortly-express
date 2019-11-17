@@ -1,5 +1,5 @@
-const utils = require('../lib/hashUtils');
-const Model = require('./model');
+const utils = require("../lib/hashUtils");
+const Model = require("./model");
 
 /**
  * Users is a class with methods to interact with the users table, which
@@ -9,7 +9,7 @@ const Model = require('./model');
  */
 class Users extends Model {
   constructor() {
-    super('users');
+    super("users");
   }
 
   /**

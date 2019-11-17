@@ -1,11 +1,13 @@
-const Promise = require('bluebird');
+const Promise = require("bluebird");
 
-module.exports = (db) => {
+module.exports = db => {
   if (!db.queryAsync) {
     db = Promise.promisifyAll(db);
   }
   // Create links table
-  return db.queryAsync(`
+  return db
+    .queryAsync(
+      `
     CREATE TABLE IF NOT EXISTS links (
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       url VARCHAR(255),
@@ -13,7 +15,8 @@ module.exports = (db) => {
       code VARCHAR(5),
       title VARCHAR(255),
       visits INT NOT NULL DEFAULT 0
-    );`)
+    );`
+    )
     .then(() => {
       // Create clicks table
       return db.queryAsync(`
